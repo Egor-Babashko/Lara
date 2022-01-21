@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+
+    public function getArticle() {
+        return view('ViewArticles', ['articles' => Article::all()]);
+    }
+
+
     public function show(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
         return view('pages.both.article');

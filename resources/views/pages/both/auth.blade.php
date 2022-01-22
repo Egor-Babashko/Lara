@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <form class="login">
+    <form class="login" method="post" action="{{ route('auth') }}">
         <div class="container_reg">
             <h1 class="container__header">Авторизация</h1>
             <div class="reg_panel">

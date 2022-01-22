@@ -23,4 +23,9 @@ Route::get('/create', [\App\Http\Controllers\ArticleController::class, 'showCrea
 Route::post('/create', [\App\Http\Controllers\ArticleController::class, 'store'])->name('create');
 
 
+Route::view('/reg', 'pages.both.reg')->name('reg');
+
+Route::view('/auth', 'pages.both.auth')->name('auth');
+
+
 

@@ -9,7 +9,6 @@
     @stack("header")
 </head>
 <body>
-
 @yield("header")
 @yield("main")
 @yield("footer")

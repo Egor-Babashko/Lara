@@ -23,3 +23,4 @@ Route::get('/create', [\App\Http\Controllers\ArticleController::class, 'showCrea
 Route::post('/create', [\App\Http\Controllers\ArticleController::class, 'store'])->name('create');
 
 
+

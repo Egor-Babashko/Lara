@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
 
     public function getArticle() {
-        return view('ViewArticles', ['articles' => Article::all()]);
+        return view('pages.both.article', ['articles' => Article::all()]);
     }
 
 
@@ -18,7 +18,8 @@ class ArticleController extends Controller
         return view('pages.both.article');
     }
 
-    public function showCreate() {
+    public function showCreate(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
+    {
         return view('pages.user.create_article');
     }
 

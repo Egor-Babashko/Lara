@@ -15,20 +15,26 @@
     <script src="https://kit.fontawesome.com/337ebf80dd.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <form class="login" method="post" action="{{ route('auth') }}">
-        <div class="container_reg">
-            <h1 class="container__header">Авторизация</h1>
-            <div class="reg_panel">
-                <div class="panel">
-                    <span class="name_panel">имя<input class="reg_item" type="text" required></span>
-                    <span class="name_panel">почта<input class="reg_item" type="email" required></span>
-                    <span class="name_panel">пароль<input class="reg_item" type="password" required></span>
-                    <div class="btn2"><a class="btn_btn2" href="">войти</a></div>
+<form class="login" method="post" action="{{ route('login') }}">
+    <div class="container_reg">
+        <h1 class="container__header">Авторизация</h1>
+        <div class="reg_panel">
+            <div class="panel">
+                <span class="name_panel">
+                    почта
+                    <input name="email" class="reg_item" type="email" required>
+                </span>
+                <span class="name_panel">
+                    пароль
+                    <input name="password" class="reg_item" type="password" required>
+                </span>
+                <div class="btn2">
+                    <button type="submit" class="btn_btn2" href="">войти</button>
                 </div>
+                <div class="btn2"><a class="btn_btn2" href="{{ route('reg') }}">Register</a></div>
             </div>
         </div>
-    </form>
-</body>
+    </div>
+    {{csrf_field()}}
+</form>
 
-</html>

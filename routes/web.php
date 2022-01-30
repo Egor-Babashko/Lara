@@ -18,14 +18,27 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/articles', [\App\Http\Controllers\ArticleController::class, 'getArticle']);
 
-Route::get('/', [\App\Http\Controllers\ArticleController::class, 'show']);
-Route::get('/create', [\App\Http\Controllers\ArticleController::class, 'showCreate']);
+Route::get('/', [\App\Http\Controllers\ArticleController::class, 'show'])->name('index');
+Route::get('/create', [\App\Http\Controllers\ArticleController::class, 'showCreate'])->middleware('auth');
 Route::post('/create', [\App\Http\Controllers\ArticleController::class, 'store'])->name('create');
 
+Route::group(['middleware' => 'guest'], function(){
+    Route::get('/reg', [\App\Http\Controllers\RegController::class, 'showReg'])->name('reg');
+    Route::post('/reg', [\App\Http\Controllers\RegController::class, 'addUser'])->name('reg');
 
-Route::view('/reg', 'pages.both.reg')->name('reg');
+    Route::get('/auth', [\App\Http\Controllers\AuthController::class, 'showAuth']);
+    Route::post('/auth', [\App\Http\Controllers\AuthController::class,'checkUser'])->name('login');
+});
 
-Route::view('/auth', 'pages.both.auth')->name('auth');
+Route::get('logout', function () {
+    Auth::Logout();
+    return redirect()->route('login');
+})->middleware('auth');
+
+
+Route::get('/article/{id}', [\App\Http\Controllers\ArticleController::class, 'articleGet'])->name('show_one_article');
+
+
 
 
 

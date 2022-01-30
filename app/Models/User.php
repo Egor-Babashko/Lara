@@ -15,5 +15,12 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_id',
     ];
+
+    public function articles() {
+        return $this->hasMany(Article::class);
+        // Статьи пользователя
+    }
+
 }

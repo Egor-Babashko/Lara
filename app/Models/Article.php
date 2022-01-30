@@ -13,5 +13,18 @@ class Article extends Model
         "title",
         "content",
         "likes",
+        "comment",
+        "user_id",
     ];
+
+    public function creator() {
+        return $this->belongsTo(User::class);
+        //Статья пользователя
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class);
+        //Комментарии статьи
+    }
+
 }
